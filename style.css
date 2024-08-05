@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: CB ;
+    font-weight: 900;
+    /* outline: red 1px solid; */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: black;
+    flex-direction: column;
+    gap: 40px;
+    overflow: hidden;
+}
+
+h2 {
+    position: relative;
+    margin: 20px 0 0;
+    font-size: 5em;
+    font-weight: 900;
+    color: #fff;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    padding: 0 15px;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: -20%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #000 5%, #000 100%);
+    animation: animate 5.5s linear forwards;
+    animation-delay: 2s;
+}
+
+@keyframes animate {
+    0% {
+        left: -20%;
+    }
+
+    100% {
+        left: 110%;
+    }
+}
+
+h2 span {
+    color: #ff022c;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 999;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transform: rotate(180deg);
+    margin: auto 0;
+}
+
+
+
+/* Heart */
+
+.heart{
+    width: 70px;
+    height: 70px;
+    background: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart  0.6s linear infinite;
+    /* left: -20%; */
+    animation-delay: 2s;
+    z-index: 9;
+}
+
+@keyframes heart{
+    0%{
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80%{
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100%{
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart::before{
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: #f20044;
+    top: -50%;
+    border-radius: 50px;
+    box-shadow: -10px -10px 90px #f20044;
+}
+
+.heart::after{
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: #f20044;
+    right: -50%;
+    border-radius: 50px;
+    box-shadow: 10px 10px 90px #f20044;
+}
+
+@font-face {
+    font-family:CB ;
+    src: url(fonts/Caveat-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family:CR ;
+    src: url(fonts/Caveat-Bold.ttf);
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+/* Hover heart */
+
+.hoverheart{
+    position: absolute;
+    pointer-events: none;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+    animation: fadeInOut 1s linear infinite;
+}
+
+@keyframes fadeInOut
+{
+    0%, 100%
+    {
+        opacity: 0;
+    }
+    20%, 80%
+    {
+        opacity: 1;
+    }
+}
+
+.hoverheart::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(heart.png);
+    background-size: cover;
+    animation: moveShape 1s linear infinite;
+}
+
+@keyframes moveShape {
+    0%
+    {
+        transform: translate(0) rotate(0deg);
+    }
+    100%
+    {
+        transform: translate(300px) rotate(360deg);
+    }
+}

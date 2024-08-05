@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/snow.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
+    <title>Yasmina</title>
+</head>
+
+<body>
+    <video src="particles.mp4" muted="" autoplay=""></video>
+    <h2><span>П</span>ривет!, Хо<span>ро</span>шего дня Ясмина!</h2>
+    <div class="heart"></div>
+
+
+
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            let body = document.querySelector('body');
+            let heartHover = document.createElement('span');
+            heartHover.setAttribute('class', 'hoverheart');
+
+            let x = e.offsetX;
+            let y = e.offsetY;
+            heartHover.style.left = x + 'px';
+            heartHover.style.top = y + 'px';
+
+            let size = Math.random() * 80;
+            heartHover.style.width = 20 + size + 'px';
+            heartHover.style.height = 20 + size + 'px';
+
+            let transformValue = Math.random() * 360;
+            heartHover.style.transform = 'rotate(' + transformValue + 'deg)';
+
+            body.appendChild(heartHover);
+
+            setTimeout(function () {
+                heartHover.remove();
+            }, 1000);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/Snow.min.js"></script>
+    <script>
+        new Snow();
+    </script>
+</body>
+
+</html>
